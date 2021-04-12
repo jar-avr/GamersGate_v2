@@ -1,0 +1,693 @@
+#colors() {
+  primary: #141414;
+  secondary: #4D4D4D;
+  text1: #DEDEDE;
+  text2: #B5B5B5;
+  text3: #E5E5E5;
+  red: #EC4E20;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#bundle() {
+  .button {
+    cursor: pointer;
+    img {
+      width: 222px;
+    }
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  .email {
+    width: 300px;
+    .envelope {
+      float: left;
+      img {
+        height: 40px;
+      }
+    }
+    .emailText {
+      float: left;
+      text-align: center;
+      position: relative;
+      transform: translateX(10%) translateY(5%);
+    }
+  }
+  .textInBox {
+    .title {
+      font-weight: bolder;
+      margin-top: 5px;
+      @media (max-width: 767px) {
+        font-size: 18px;
+      }
+    }
+    .studio {
+      font-size: 16px;
+      font-weight: lighter;
+      padding-top: 30px;
+      @media (max-width: 767px) {
+        font-size: 14px;
+      }
+    }
+    .price {
+      font-size: 18px;
+      color: #colors[text3];
+      @media (max-width: 767px) {
+        font-size: 16px;
+      }
+    }
+  }
+  .scale {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
+
+html, body {
+  box-sizing: border-box;
+  background: #colors[primary];
+  padding: 0;
+  margin: 0;
+  font-family: work-sans, sans-serif;
+  font-size: 18px;
+  img {
+    opacity: 1;
+    transition: .5s;
+  }
+
+  #transition-disabled {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+  }
+
+  #footer {
+    height: 180px;
+    .email {
+      #bundle.email;
+    }
+    @media (max-width: 992px) {
+      height: 400px;
+    }
+    #innerFooter {
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      .container {
+        padding-bottom: 0;
+        padding-top: 0;
+      }
+      .mobileReferences, .mobileEmailText, .mobileEnvelope {
+        display: none;
+      }
+      @media (max-width: 1400px) {
+        width: 90%;
+        font-size: 18px;
+        .footerRef {
+          padding-left: 10%;
+        }
+      }
+      @media (max-width: 992px) {
+        height: 400px;
+        flex-direction: column;
+        align-items: flex-start;
+        #lowerLogo {
+          display: none;
+        }
+        #footerContainer {
+          display: none;
+        }
+        .mobileReferences {
+          display: flex;
+          flex-direction: column;
+          a {
+            padding-bottom: 30px;
+            font-size: 16px;
+          }
+        }
+        .mobileEnvelope {
+          display: inline-block;
+          align-self: center;
+          img {
+            padding-top: 15%;
+            width: 50px;
+          }
+        }
+        .mobileEmailText {
+          display: inline-block;
+          align-self: center;
+          text-align: center;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .menu {
+    background: #colors[secondary];
+    color: #colors[text1];
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 767px) {
+      height: 60px;
+    }
+
+    a {
+      color: #DEDEDE;
+      text-decoration: none;
+    }
+    .logo img {
+      height: 70px;
+      @media (max-width: 992px) {
+        height: 45px;
+      }
+    }
+    .innerMenu {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      height: 90px;
+      position: relative;
+
+      #references {
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .email {
+        #bundle.email;
+      }
+      input {
+        background-color: #colors[primary];
+        padding: 10px;
+        font-size: 17px;
+        color: #colors[text1];
+        float: left;
+        width: 62%;
+      }
+      #searchButton {
+        float: left;
+        width: 38%;
+        padding: 10px;
+        background: #B5B5B5;
+        color: #colors[primary];
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .menuButton {
+        background: #4D4D4D;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        color: #DEDEDE;
+      }
+      #menuIcon {
+        width: 60px;
+        display: none;
+        cursor: pointer;
+      }
+      @media (max-width: 1400px) {
+        width: 70%;
+        #upperEmail {
+          display: none;
+        }
+      }
+      @media (max-width: 1200px) {
+        width: 80%;
+        .search {
+          display: none;
+        }
+        #menuIcon {
+          display: inline-block;
+        }
+        #references {
+          display: none;
+        }
+      }
+      @media (max-width: 767px) {
+        height: 100px;
+        #menuIcon {
+          width: 35px;
+        }
+      }
+    }
+    #loggedIn {
+      font-size: 20px;
+      color: #EC4E20;
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+    #logOut {
+      position: absolute;
+      top: 50px;
+      right: 60px;
+      color: #EC4E20;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      background-color: #4D4D4D;
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+    .login {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: none;
+      padding: 0;
+      background-color: #colors[primary];
+      cursor: pointer;
+      img {
+        height: 90px;
+      }
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+  }
+  .landingContainer {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    @media (max-width: 450px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .dropdown-content {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    .ov-content {
+      position: relative;
+      top: 25%;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      #login {
+        margin-bottom: 100px;
+        color: #EC4E20;
+      }
+      button {
+        display: block;
+        background-color: transparent;
+        border: none;
+        border-bottom: solid;
+        cursor: pointer;
+        margin-left: 10%;
+        margin-top: 40px;
+        color: #DEDEDE;
+        font-size: 36px;
+        transition: 0.3s;
+        @media (max-height: 450px) {
+          font-size: 20px
+
+        }
+      }
+      button:hover {
+        color: white;
+      }
+    }
+    .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 60px;
+      text-decoration: none;
+      color: #DEDEDE;
+      @media (max-height: 450px) {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+      }
+    }
+  }
+  .container {
+    @-webkit-keyframes flash {
+      0% {
+        opacity: .8;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes flash {
+      0% {
+        opacity: .8;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+     a {
+      text-decoration: none;
+     }
+     .moreGamesButton {
+       position: relative;
+       transform: translateY(-50%);
+       .right {
+         position: absolute;
+         right: 8px;
+         top: -10px;
+         @media (max-width: 1400px) {
+           margin-right: 6px;
+         }
+         @media (max-width: 1200px) {
+           margin-right: 10px;
+         }
+         @media (max-width: 992px) {
+           margin-right: 0px;
+         }
+         @media (max-width: 767px) {
+           display: none;
+         }
+         button {
+           #bundle.button;
+         }
+       }
+       .left {
+         color: #colors[red];
+         @media (max-width: 767px) {
+           padding-left: 3%;
+         }
+         @media (max-width: 450px) {
+           display: flex;
+           justify-content: center;
+           padding-bottom: 40px;
+           padding-left: 0;
+         }
+       }
+    }
+    .main1 {
+      .col {
+        padding-bottom: 60px;
+        @media (max-width: 767px) {
+          padding-left: 5%;
+        }
+        @media (max-width: 450px) {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        img {
+          height: 230px;
+          @media (max-width: 1200px) {
+            height: 180px;
+          }
+          @media (max-width: 450px) {
+            height: 200px;
+          }
+        }
+        img:hover {
+          #bundle.scale;
+          animation: flash 1.5s;
+        }
+        button {
+          border: none;
+          padding: 0;
+          background-color: #141414;
+          cursor: pointer;
+        }
+        color: #colors[text2];
+        #bundle.textInBox;
+        @media (max-width: 450px) {
+          .title {
+            font-size: 14px;
+          }
+          .studio {
+            font-size: 12px;
+          }
+          .price {
+            font-size: 12px;
+          }
+        }
+      }
+      .fading6 {
+        @media (max-width: 1400px) {
+          display: none;
+        }
+        @media (max-width: 767px) {
+          display: flex;
+        }
+      }
+      .fading5 {
+        @media (max-width: 992px) {
+          display: none;
+        }
+        @media (max-width: 767px) {
+          display: flex;
+        }
+      }
+    }
+    .lowerButton {
+      display: none;
+      padding-top: 30px;
+      button {
+        #bundle.button;
+        border: none;
+        background-color: #141414;
+      }
+      @media (max-width: 767px) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .main2 {
+      margin-top: 0;
+      img:hover {
+        #bundle.scale;
+        animation: flash 1.5s;
+      }
+      .col {
+        padding-bottom: 20px;
+        form {
+          color: #colors[primary];
+          #bundle.textInBox;
+          button {
+            padding: 0;
+            border: none;
+            background-color: #EC4E20;
+            cursor: pointer;
+          }
+        }
+        .mainImage {
+          width: 625px;
+        }
+        .mobileImage {
+          width: 350px;
+          display: none;
+        }
+        @media (max-width: 1400px) {
+          display: flex;
+          justify-content: center;
+          .mainImage {
+            width: 800px;
+          }
+        }
+        @media (max-width: 992px) {
+          .mainImage {
+            width: 600px;
+          }
+        }
+        @media (max-width: 767px) {
+          .mobileImage {
+            display: inline-block;
+          }
+          .mainImage {
+            display: none;
+          }
+        }
+        @media (max-width: 450px) {
+          .mobileImage {
+            width: 230px;
+          }
+        }
+      }
+    }
+    .hotGames {
+      display: flex;
+      position: relative;
+      transform: translateY(-50%);
+      img {
+        width: 62px;
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+      .text {
+        color: #colors[primary];
+        font-weight: bold;
+        vertical-align: middle;
+        line-height: 62px;
+        transform: translateX(20px);
+      }
+      @media (max-width: 1400px) {
+        padding-left: 13%;
+      }
+      @media (max-width: 1200px) {
+        padding-left: 6%;
+      }
+      @media (max-width: 767px) {
+        padding-left: 0;
+        justify-content: center;
+        .text {
+          transform: translateX(0);
+        }
+      }
+    }
+    .main3 {
+      .col {
+        .mainImage {
+          width: 1285px;
+        }
+        .mobileImage {
+          width: 350px;
+          display: none;
+        }
+        @media (max-width: 1400px) {
+          .mainImage {
+            width: 1000px;
+          }
+        }
+        @media (max-width: 1200px) {
+          .mainImage {
+            width: 800px;
+          }
+        }
+        @media (max-width: 992px) {
+          .mainImage {
+            width: 600px;
+          }
+        }
+        @media (max-width: 767px) {
+          .mobileImage {
+            display: inline-block;
+          }
+          .mainImage {
+            display: none;
+          }
+          padding-left: 15%;
+        }
+        @media (max-width: 450px) {
+          .mobileImage {
+            width: 230px;
+            padding-left: 8%;
+          }
+        }
+        .imgText {
+          position: relative;
+          text-align: center;
+          color: #colors[text1];
+          .innerText {
+            position: absolute;
+            top: 45%;
+            left: 2%;
+            width: 60%;
+            text-align: left;
+            @media (max-width: 1400px) {
+              font-size: 14px;
+              left: 8%;
+            }
+          }
+          .imgButton {
+            position: absolute;
+            bottom: 2%;
+            left: 2%;
+            button {
+              #bundle.button;
+              border: none;
+              padding: 0;
+            }
+            @media (max-width: 1400px) {
+              left: 8%;
+            }
+            @media (max-width: 992px) {
+              display: none;
+            }
+            img:hover {
+              opacity: .9;
+            }
+          }
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
+      }
+    }
+    .underImgButton {
+      display: none;
+      padding-top: 2%;
+      @media (max-width: 992px) {
+        display: inline-block;
+        padding-left: 6.5%;
+      }
+      @media (max-width: 767px) {
+        padding-left: 25%;
+      }
+      @media (max-width: 450px) {
+        padding-left: 17%;
+      }
+      button {
+        #bundle.button;
+        border: none;
+        padding: 0;
+      }
+      img:hover {
+        opacity: .9;
+      }
+    }
+    .outerText {
+      display: none;
+      font-size: 14px;
+      padding-left: 13%;
+      padding-top: 2%;
+      color: #colors[text1];
+      width: 80%;
+
+      @media (max-width: 767px) {
+        display: inline-block;
+      }
+      @media (max-width: 450px) {
+        padding-left: 20%;
+      }
+    }
+    .footerRef {
+      padding-left: 20%;
+      padding-bottom: 30px;
+      font-size: 16px;
+    }
+    #lowest {
+      padding-bottom: 0;
+    }
+  }
+  .banner1 {
+    background: #colors[red];
+  }
+  .banner2 {
+    background: #00A9A5;
+  }
+}
